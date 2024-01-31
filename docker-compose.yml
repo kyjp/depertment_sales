@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  db:
+    container_name: db
+    build: ./mysql
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - db-store:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - default
+  api:
+    container_name: FastAPI
+    build: ./api
+    volumes:
+      - ./api/src:/var/www/html
+    ports:
+      - "9004:9004"
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 9004
+    tty: true
+    environment:
+      MONGO_DATABASE_NAME: mongodb
+      MONGO_DATABASE_USER: admin
+      MONGO_DATABASE_PASSWORD: password
+      MONGO_DATABASE_CONTAINER_NAME: mongo
+      MONGO_DATABASE_PORT: "27017"
+    depends_on:
+      - db
+    networks:
+      - default
+  # app:
+  #   build: ./src
+  #   container_name: "react-fastapi-app"
+  #   tty: true
+  #   ports:
+  #     - 3000:3000
+  #   command: sh -c "yarn start"
+  #   volumes:
+  #     - ./src/html:/var/www:cached
+  #   environment:
+  #     CHOKIDAR_USEPOLLING: 1
+  #   depends_on:
+  #     - api
+  #   networks:
+  #     - default
+volumes:
+  db-store: null
+networks:
+  default:
+    driver: bridge

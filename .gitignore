@@ -1,0 +1,84 @@
+# mySetting
+**/_sample/img
+upimages
+uploads
+upload
+
+digital-book
+
+_gitpush.js
+_clients.htaccess
+
+# public_html/_deploy/
+# public_html/**/*.html
+# public_html/design/css/
+# public_html/design/js/
+# public_html/design/json/
+# public_html/design/ssi/
+# public_html/design/svg/all.svg
+
+# Git
+.gitconfig
+
+# Mac OS
+.DS_Store
+.AppleDouble
+.AppleDesktop
+.AppleDB
+
+# Windows
+Thumbs.db
+
+# Dreamweaver
+_compareTemp
+_notes
+*.mno
+
+# Compass
+compass_start.bat
+.sass-cache
+.map
+
+# Server
+.mysql_history
+.htaccess
+
+
+# sublime
+sftp-config.json
+.sublime-grunt.cache
+.sublime-gulp.cache
+
+# node.js
+node_modules
+npm-debug.log
+
+# Grunt
+.grunt
+
+# ruby
+.bundle
+vendor
+
+# Others
+_data
+_old
+_bk
+*.bak
+*.log
+._*
+
+# terminal
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.vim
+.viminfo
+logs
+*.map
+
+.vscode
+
+# nodenv
+.node-version
